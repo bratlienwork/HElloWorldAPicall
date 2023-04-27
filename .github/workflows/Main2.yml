@@ -1,10 +1,14 @@
 name: Hello world
-on: 
+on:
   repository_dispatch:
+    types: [test_result]
+
 jobs:
-  my-job:
-    name: Example JOb
+  run_if_failure:
+    if: ${{ !github.event.client_payload.passed }}
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World! from "
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo $MESSAGE
+
