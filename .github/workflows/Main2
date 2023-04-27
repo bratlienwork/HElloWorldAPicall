@@ -1,0 +1,10 @@
+name: Manual Inputs
+on: 
+  repository_dispatch:
+jobs:
+  my-job:
+    name: Example JOb
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World! from Paul"
