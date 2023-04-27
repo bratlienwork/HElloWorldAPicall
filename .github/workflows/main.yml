@@ -3,12 +3,9 @@
 name: Manual Inputs
 on: 
   workflow_dispatch:
-
-        
- name: hello-world
-on: push
 jobs:
   my-job:
+    name: Example JOb
     runs-on: ubuntu-latest
     steps:
       - name: my-step
